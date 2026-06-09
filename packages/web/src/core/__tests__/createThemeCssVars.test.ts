@@ -15,6 +15,9 @@ const mockIllustrationColor = {
   accent4: 'rgb(115, 162, 255)',
   invert: 'rgb(10, 11, 14)',
   invert2: 'rgb(255, 255, 254)',
+  dotPrimary: 'rgb(0, 82, 254)',
+  dotSecondary: 'rgb(176, 202, 255)',
+  dotTertiary: 'rgb(200, 203, 210)',
 } as const;
 
 describe('createThemeCssVars — illustrationColor', () => {
@@ -37,10 +40,17 @@ describe('createThemeCssVars — illustrationColor', () => {
     expect(result['--illustration-gray-3']).toBe('rgb(206, 210, 220)');
   });
 
-  it('emits all 14 illustration tokens', () => {
+  it('preserves camelCase for dot tokens: dotPrimary → --illustration-dotPrimary', () => {
+    const result = createThemeCssVars({ illustrationColor: mockIllustrationColor });
+    expect(result['--illustration-dotPrimary']).toBe('rgb(0, 82, 254)');
+    expect(result['--illustration-dotSecondary']).toBe('rgb(176, 202, 255)');
+    expect(result['--illustration-dotTertiary']).toBe('rgb(200, 203, 210)');
+  });
+
+  it('emits all 17 illustration tokens', () => {
     const result = createThemeCssVars({ illustrationColor: mockIllustrationColor });
     const illustrationKeys = Object.keys(result).filter((k) => k.startsWith('--illustration-'));
-    expect(illustrationKeys).toHaveLength(14);
+    expect(illustrationKeys).toHaveLength(17);
   });
 
   it('does not emit --illustration-* vars when illustrationColor is absent', () => {

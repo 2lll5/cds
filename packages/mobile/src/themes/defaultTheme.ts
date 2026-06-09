@@ -415,6 +415,9 @@ export const defaultTheme = {
     accent4: `rgb(${lightSpectrum.blue20})`,
     invert: `rgb(10, 11, 14)`,
     invert2: `rgb(255, 255, 254)`,
+    dotPrimary: `rgb(0, 82, 254)`,
+    dotSecondary: `rgb(176, 202, 255)`,
+    dotTertiary: `rgb(200, 203, 210)`,
   },
   darkIllustrationColor: {
     primary: `rgb(${darkSpectrum.blue70})`,
@@ -431,6 +434,9 @@ export const defaultTheme = {
     accent4: `rgb(${darkSpectrum.blue80})`,
     invert: `rgb(${darkSpectrum.gray100})`,
     invert2: `rgb(${darkSpectrum.gray50})`,
+    dotPrimary: `rgb(0, 82, 254)`,
+    dotSecondary: `rgb(176, 202, 255)`,
+    dotTertiary: `rgb(255, 255, 255)`,
   },
   space: {
     '0': 0,

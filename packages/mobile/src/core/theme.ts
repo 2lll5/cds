@@ -19,10 +19,18 @@ export type ThemeConfig = {
   lightColor?: { [key in ThemeVars.Color]: string };
   /** The dark color palette. */
   darkColor?: { [key in ThemeVars.Color]: string };
-  /** The light illustration color palette. */
-  lightIllustrationColor?: { [key in ThemeVars.IllustrationColor]: string };
-  /** The dark illustration color palette. */
-  darkIllustrationColor?: { [key in ThemeVars.IllustrationColor]: string };
+  /**
+   * The light illustration color palette. All tokens are optional — any token a consumer omits
+   * is filled in by ThemeProvider with the corresponding `defaultLightIllustrationColor` value,
+   * so a complete palette is always exposed at runtime. This keeps new illustration color tokens
+   * non-breaking for existing custom themes.
+   */
+  lightIllustrationColor?: Partial<{ [key in ThemeVars.IllustrationColor]: string }>;
+  /**
+   * The dark illustration color palette. See {@link ThemeConfig.lightIllustrationColor} for
+   * details on optional tokens and runtime fallback behavior.
+   */
+  darkIllustrationColor?: Partial<{ [key in ThemeVars.IllustrationColor]: string }>;
   /** The space values, used for margin and padding. */
   space: { [key in ThemeVars.Space]: number };
   /** The icon size values. */

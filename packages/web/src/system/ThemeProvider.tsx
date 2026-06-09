@@ -1,6 +1,10 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
 import React, { createContext, memo, useContext, useMemo } from 'react';
 import type { ColorScheme } from '@coinbase/cds-common/core/theme';
+import {
+  defaultDarkIllustrationColor,
+  defaultLightIllustrationColor,
+} from '@coinbase/cds-common/tokens/illustrations';
 
 import { createThemeCssVars } from '../core/createThemeCssVars';
 import type { Theme, ThemeConfig, ThemeCSSVars } from '../core/theme';
@@ -123,12 +127,23 @@ export const ThemeProvider = memo(
           `ThemeProvider theme has ${inverseColorKey} colors defined but no ${inverseSpectrumKey} values are defined for the theme. See the docs https://cds.coinbase.com/getting-started/theming`,
         );
 
+      // Merge the consumer's illustration palette (if any) on top of the canonical defaults so
+      // every theme exposes a complete palette at runtime. This makes individual illustration
+      // tokens optional in custom themes — consumers can override only the tokens they care about
+      // and any omitted (or newly added) token falls back to the default value.
+      const consumerIllustrationColor = theme[activeIllustrationKey];
+      const defaultIllustrationColor =
+        activeColorScheme === 'dark' ? defaultDarkIllustrationColor : defaultLightIllustrationColor;
+      const illustrationColor = consumerIllustrationColor
+        ? { ...defaultIllustrationColor, ...consumerIllustrationColor }
+        : undefined;
+
       return {
         ...theme,
         activeColorScheme: activeColorScheme,
         spectrum: theme[activeSpectrumKey],
         color: theme[activeColorKey],
-        illustrationColor: theme[activeIllustrationKey],
+        illustrationColor,
       };
     }, [theme, activeColorScheme]);
 

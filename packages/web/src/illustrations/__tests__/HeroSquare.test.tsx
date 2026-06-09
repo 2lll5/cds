@@ -189,4 +189,21 @@ describe('applyTheme', () => {
     );
     expect(container.innerHTML).not.toContain('--illustration-primary');
   });
+
+  it('fills in default illustration colors for tokens the consumer theme omits', () => {
+    // Consumer theme overrides only `primary`; every other token (including newly added ones
+    // like `dotPrimary`) should fall back to the canonical default palette.
+    const customTheme = {
+      ...defaultTheme,
+      lightIllustrationColor: { primary: 'rgb(255, 0, 0)' },
+    };
+    const { container } = render(
+      <DefaultThemeProvider theme={customTheme}>
+        <HeroSquare applyTheme name="add2Fa" testID="illo" />
+      </DefaultThemeProvider>,
+    );
+    expect(container.innerHTML).toContain('--illustration-primary: rgb(255, 0, 0)');
+    expect(container.innerHTML).toContain('--illustration-black: rgb(10, 11, 13)');
+    expect(container.innerHTML).toContain('--illustration-dotPrimary: rgb(0, 82, 254)');
+  });
 });

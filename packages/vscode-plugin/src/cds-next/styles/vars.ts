@@ -90,6 +90,9 @@ export const illustrationColor = {
   accent4: '#73A2FF',
   invert: '#101114',
   invert2: '#FEFFFF',
+  dotPrimary: '#0052FE',
+  dotSecondary: '#B0CAFF',
+  dotTertiary: '#C8CBD2',
 } as const;
 
 export const space = {

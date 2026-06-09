@@ -17,6 +17,9 @@ const palette: { [key in ThemeVars.IllustrationColor]: string } = {
   accent4: 'rgb(115, 162, 255)',
   invert: 'rgb(10, 11, 14)',
   invert2: 'rgb(255, 255, 254)',
+  dotPrimary: 'rgb(0, 82, 254)',
+  dotSecondary: 'rgb(176, 202, 255)',
+  dotTertiary: 'rgb(200, 203, 210)',
 };
 
 describe('convertThemedSvgToHex', () => {

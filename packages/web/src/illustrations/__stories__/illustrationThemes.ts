@@ -33,6 +33,9 @@ export const WARM_ILLUSTRATION_THEME: IllustrationTheme = {
     accent4: 'rgb(254, 215, 170)',
     invert: 'rgb(120, 53, 15)',
     invert2: 'rgb(255, 247, 237)',
+    dotPrimary: 'rgb(234, 88, 12)',
+    dotSecondary: 'rgb(254, 215, 170)',
+    dotTertiary: 'rgb(253, 230, 138)',
   },
   darkIllustrationColor: {
     primary: 'rgb(251, 146, 60)',
@@ -49,6 +52,9 @@ export const WARM_ILLUSTRATION_THEME: IllustrationTheme = {
     accent4: 'rgb(154, 52, 18)',
     invert: 'rgb(255, 237, 213)',
     invert2: 'rgb(120, 53, 15)',
+    dotPrimary: 'rgb(251, 146, 60)',
+    dotSecondary: 'rgb(154, 52, 18)',
+    dotTertiary: 'rgb(255, 247, 237)',
   },
 };
 
@@ -68,6 +74,9 @@ export const MONOCHROME_ILLUSTRATION_THEME: IllustrationTheme = {
     accent4: 'rgb(212, 212, 216)',
     invert: 'rgb(9, 9, 11)',
     invert2: 'rgb(244, 244, 245)',
+    dotPrimary: 'rgb(82, 82, 91)',
+    dotSecondary: 'rgb(161, 161, 170)',
+    dotTertiary: 'rgb(228, 228, 231)',
   },
   darkIllustrationColor: {
     primary: 'rgb(161, 161, 170)',
@@ -84,6 +93,9 @@ export const MONOCHROME_ILLUSTRATION_THEME: IllustrationTheme = {
     accent4: 'rgb(63, 63, 70)',
     invert: 'rgb(244, 244, 245)',
     invert2: 'rgb(39, 39, 42)',
+    dotPrimary: 'rgb(212, 212, 216)',
+    dotSecondary: 'rgb(113, 113, 122)',
+    dotTertiary: 'rgb(244, 244, 245)',
   },
 };
 
@@ -104,6 +116,9 @@ export const GARISH_ILLUSTRATION_THEME: IllustrationTheme = {
     accent4: 'rgb(147, 197, 253)',
     invert: 'rgb(127, 29, 29)',
     invert2: 'rgb(219, 234, 254)',
+    dotPrimary: 'rgb(168, 85, 247)',
+    dotSecondary: 'rgb(236, 72, 153)',
+    dotTertiary: 'rgb(34, 211, 238)',
   },
   darkIllustrationColor: {
     primary: 'rgb(248, 113, 113)',
@@ -120,6 +135,9 @@ export const GARISH_ILLUSTRATION_THEME: IllustrationTheme = {
     accent4: 'rgb(147, 197, 253)',
     invert: 'rgb(254, 202, 202)',
     invert2: 'rgb(30, 58, 138)',
+    dotPrimary: 'rgb(192, 132, 252)',
+    dotSecondary: 'rgb(244, 114, 182)',
+    dotTertiary: 'rgb(103, 232, 249)',
   },
 };
 

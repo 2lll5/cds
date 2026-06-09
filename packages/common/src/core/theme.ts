@@ -119,6 +119,9 @@ export namespace ThemeVarsDefault {
     accent4: void;
     invert: void;
     invert2: void;
+    dotPrimary: void;
+    dotSecondary: void;
+    dotTertiary: void;
   }
 
   export interface Space {

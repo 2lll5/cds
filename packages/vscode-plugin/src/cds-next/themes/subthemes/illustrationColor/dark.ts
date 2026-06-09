@@ -16,5 +16,8 @@ export const darkIllustrationColorTheme = {
     accent4: '#A5C1FD',
     invert: '#FFFFFF',
     invert2: '#0A0B0D',
+    dotPrimary: '#0052FE',
+    dotSecondary: '#B0CAFF',
+    dotTertiary: '#FFFFFF',
   },
 } as const satisfies IllustrationColorTheme;

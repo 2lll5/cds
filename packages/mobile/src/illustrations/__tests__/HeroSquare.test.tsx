@@ -167,4 +167,24 @@ describe('illustration theming', () => {
     );
     expect(screen.queryByTestId(testID)).toBeNull();
   });
+
+  it('fills in default illustration colors for tokens the consumer theme omits', () => {
+    // Consumer theme overrides only `primary`; every other token (including newly added ones
+    // like `dotPrimary`) should fall back to the canonical default palette so themed SVGs
+    // still render correctly.
+    const customTheme = {
+      ...defaultTheme,
+      lightIllustrationColor: { primary: 'rgb(255, 0, 0)' },
+    };
+    render(
+      <DefaultThemeProvider theme={customTheme}>
+        <HeroSquare applyTheme name="accessToAdvancedCharts" testID={testID} />
+      </DefaultThemeProvider>,
+    );
+    const xml = screen.getByTestId(testID).props.xml as string;
+    // Overridden primary is applied
+    expect(xml).toContain('#ff0000');
+    // No unresolved var() tokens — defaults filled in for all other tokens including new ones
+    expect(xml).not.toContain('var(--illustration-');
+  });
 });
