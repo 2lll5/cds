@@ -14,9 +14,9 @@ export type ThemeConfig = {
   darkColor?: { [key in ThemeVars.Color]: Property.Color };
   /**
    * The light illustration color palette. All tokens are optional — any token a consumer omits
-   * is filled in by ThemeProvider with the corresponding `defaultLightIllustrationColor` value,
-   * so a complete palette is always exposed at runtime. This keeps new illustration color tokens
-   * non-breaking for existing custom themes.
+   * is filled in by ThemeProvider with the value from the cds-default theme, so a complete
+   * palette is always exposed at runtime. This keeps new illustration color tokens non-breaking
+   * for existing custom themes.
    */
   lightIllustrationColor?: Partial<{ [key in ThemeVars.IllustrationColor]: Property.Color }>;
   /**

@@ -192,7 +192,7 @@ describe('applyTheme', () => {
 
   it('fills in default illustration colors for tokens the consumer theme omits', () => {
     // Consumer theme overrides only `primary`; every other token (including newly added ones
-    // like `dotPrimary`) should fall back to the canonical default palette.
+    // like `dotPrimary`) should fall back to the cds-default theme's palette.
     const customTheme = {
       ...defaultTheme,
       lightIllustrationColor: { primary: 'rgb(255, 0, 0)' },
@@ -202,8 +202,12 @@ describe('applyTheme', () => {
         <HeroSquare applyTheme name="add2Fa" testID="illo" />
       </DefaultThemeProvider>,
     );
+    // Consumer override is applied
     expect(container.innerHTML).toContain('--illustration-primary: rgb(255, 0, 0)');
-    expect(container.innerHTML).toContain('--illustration-black: rgb(10, 11, 13)');
+    // Tokens not overridden fall back to defaultTheme values (note: no spaces in rgb() — values
+    // come from spectrum template strings like `rgb(${lightSpectrum.gray100})`)
+    expect(container.innerHTML).toContain('--illustration-black: rgb(10,11,13)');
+    // New dot tokens also fall back to defaultTheme values
     expect(container.innerHTML).toContain('--illustration-dotPrimary: rgb(0, 82, 254)');
   });
 });
