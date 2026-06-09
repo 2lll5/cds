@@ -8,6 +8,12 @@ All notable changes to this project will be documented in this file.
 
 <!-- template-start -->
 
+## 9.3.0 (6/9/2026 PST)
+
+#### 🚀 Updates
+
+- Feat: add dotPrimary/dotSecondary/dotTertiary illustration color tokens. [[#746](https://github.com/coinbase/cds/pull/746)]
+
 ## 9.2.1 ((6/9/2026, 07:53 AM PST))
 
 This is an artificial version bump with no new change.
